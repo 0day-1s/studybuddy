@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StudyBuddy Match</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Nunito:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="app">
+    <main id="main">
+
+      <!-- F01 Welcome -->
+      <section class="screen" id="welcome" aria-labelledby="welcome-title">
+        <svg class="hero" viewBox="0 0 200 140" role="img" aria-label="Two friendly students studying together">
+          <circle cx="70" cy="60" r="26" fill="#0F766E"/>
+          <circle cx="130" cy="60" r="26" fill="#C2410C"/>
+          <path d="M30 140c0-26 18-42 40-42s40 16 40 42z" fill="#0F766E"/>
+          <path d="M90 140c0-26 18-42 40-42s40 16 40 42z" fill="#C2410C"/>
+        </svg>
+        <h1 id="welcome-title" tabindex="-1">StudyBuddy Match</h1>
+        <p class="lead">Find the right person to study with, for your module.</p>
+        <a class="btn btn-primary" href="#walk1">Get started</a>
+      </section>
+
+      <!-- F02 Walkthrough 1 -->
+      <section class="screen center" id="walk1" aria-labelledby="walk1-title">
+        <div class="step-art" aria-hidden="true">1</div>
+        <div class="dots" role="img" aria-label="Screen 1 of 3"><span class="on"></span><span></span><span></span></div>
+        <h1 id="walk1-title" tabindex="-1">Tell us how you study</h1>
+        <p class="lead">Add your modules, when you are free and how you like to study. It takes about a minute.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#walk2">Next</a>
+          <a class="btn btn-secondary" href="#signup">Skip</a>
+        </div>
+      </section>
+
+      <!-- F03 Walkthrough 2 -->
+      <section class="screen center" id="walk2" aria-labelledby="walk2-title">
+        <div class="step-art" aria-hidden="true">2</div>
+        <div class="dots" role="img" aria-label="Screen 2 of 3"><span></span><span class="on"></span><span></span></div>
+        <h1 id="walk2-title" tabindex="-1">See your best matches</h1>
+        <p class="lead">We suggest classmates on the same module whose free time and study style fit yours.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#walk3">Next</a>
+          <a class="btn btn-secondary" href="#signup">Skip</a>
+        </div>
+      </section>
+
+      <!-- F04 Walkthrough 3 -->
+      <section class="screen center" id="walk3" aria-labelledby="walk3-title">
+        <div class="step-art" aria-hidden="true">3</div>
+        <div class="dots" role="img" aria-label="Screen 3 of 3"><span></span><span></span><span class="on"></span></div>
+        <h1 id="walk3-title" tabindex="-1">Meet up and rate</h1>
+        <p class="lead">Send a request, agree a time in chat, and rate the session afterwards so your matches keep improving.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#signup">Get started</a>
+          <a class="btn btn-secondary" href="#signup">Skip</a>
+        </div>
+      </section>
+
+      <!-- F05 Sign up -->
+      <section class="screen" id="signup" aria-labelledby="signup-title">
+        <h1 id="signup-title" tabindex="-1">Create your account</h1>
+        <p class="lead">Use your student email so classmates know you are real.</p>
+        <form data-next="#setup1" novalidate>
+          <label for="su-name">Full name</label>
+          <input id="su-name" type="text" autocomplete="name" required>
+          <label for="su-email">Student email</label>
+          <input id="su-email" type="email" autocomplete="email" required>
+          <label for="su-pass">Password</label>
+          <input id="su-pass" type="password" autocomplete="new-password" aria-describedby="su-pass-hint" required>
+          <p class="hint" id="su-pass-hint">At least 8 characters.</p>
+          <button class="btn btn-primary" type="submit">Create account</button>
+        </form>
+      </section>
+
+      <!-- F06 Setup step 1 -->
+      <section class="screen" id="setup1" aria-labelledby="setup1-title">
+        <p class="step-label">Step 1 of 3</p>
+        <div class="bar" role="progressbar" aria-label="Setup progress" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1"><span style="width:33%"></span></div>
+        <h1 id="setup1-title" tabindex="-1">Which module do you need a study partner for?</h1>
+        <form data-next="#setup2" novalidate>
+          <label for="module-search">Search by module code</label>
+          <input id="module-search" type="text" autocomplete="off" placeholder="For example HCIN6222">
+          <fieldset class="modules" id="module-list">
+            <legend class="sr-only">Choose your module</legend>
+            <label class="option"><input type="radio" name="module" value="HCIN6222"><span><strong>HCIN6222</strong><span class="sub">Human Computer Interaction</span></span></label>
+            <label class="option"><input type="radio" name="module" value="PROG6212"><span><strong>PROG6212</strong><span class="sub">Programming 2B</span></span></label>
+            <label class="option"><input type="radio" name="module" value="DATA6222"><span><strong>DATA6222</strong><span class="sub">Database Intermediate</span></span></label>
+            <label class="option"><input type="radio" name="module" value="INSY6212"><span><strong>INSY6212</strong><span class="sub">IT Project Management</span></span></label>
+            <label class="option"><input type="radio" name="module" value="WEDE5020"><span><strong>WEDE5020</strong><span class="sub">Web Development</span></span></label>
+          </fieldset>
+          <p class="hint" id="no-module" role="status" hidden>No module found. Check the code, for example HCIN6222.</p>
+          <div class="actions">
+            <button class="btn btn-primary" type="submit">Next</button>
+            <a class="btn btn-secondary" href="#signup">Back</a>
+          </div>
+        </form>
+      </section>
+
+      <!-- F07 Setup step 2 (F09 is its error state) -->
+      <section class="screen" id="setup2" aria-labelledby="setup2-title">
+        <p class="step-label">Step 2 of 3</p>
+        <div class="bar" role="progressbar" aria-label="Setup progress" aria-valuemin="1" aria-valuemax="3" aria-valuenow="2"><span style="width:66%"></span></div>
+        <h1 id="setup2-title" tabindex="-1">When are you free to study?</h1>
+        <form data-next="#setup3" data-require="#days" data-error="#setup2-error" novalidate>
+          <div class="error" id="setup2-error" role="alert" hidden>
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#C2410C"/><rect x="11" y="6" width="2" height="8" fill="#fff"/><rect x="11" y="16" width="2" height="2" fill="#fff"/></svg>
+            <p><strong>Pick at least one day.</strong> We need this to find classmates who are free when you are.</p>
+          </div>
+          <fieldset id="days">
+            <legend>Days you are free</legend>
+            <label class="option"><input type="checkbox" name="day" value="Mon"><span>Monday</span></label>
+            <label class="option"><input type="checkbox" name="day" value="Tue"><span>Tuesday</span></label>
+            <label class="option"><input type="checkbox" name="day" value="Wed"><span>Wednesday</span></label>
+            <label class="option"><input type="checkbox" name="day" value="Thu"><span>Thursday</span></label>
+            <label class="option"><input type="checkbox" name="day" value="Fri"><span>Friday</span></label>
+          </fieldset>
+          <fieldset>
+            <legend>Best time of day</legend>
+            <label class="option"><input type="radio" name="time" value="Morning"><span>Morning</span></label>
+            <label class="option"><input type="radio" name="time" value="Afternoon" checked><span>Afternoon</span></label>
+            <label class="option"><input type="radio" name="time" value="Evening"><span>Evening</span></label>
+          </fieldset>
+          <div class="actions">
+            <button class="btn btn-primary" type="submit">Next</button>
+            <a class="btn btn-secondary" href="#setup1">Back</a>
+          </div>
+        </form>
+      </section>
+
+      <!-- F08 Setup step 3 -->
+      <section class="screen" id="setup3" aria-labelledby="setup3-title">
+        <p class="step-label">Step 3 of 3</p>
+        <div class="bar" role="progressbar" aria-label="Setup progress" aria-valuemin="1" aria-valuemax="3" aria-valuenow="3"><span style="width:100%"></span></div>
+        <h1 id="setup3-title" tabindex="-1">How do you like to study?</h1>
+        <form data-next="#matches-loading" novalidate>
+          <fieldset>
+            <legend>Where</legend>
+            <label class="option"><input type="radio" name="where" value="Campus" checked><span>On campus</span></label>
+            <label class="option"><input type="radio" name="where" value="Online"><span>Online</span></label>
+            <label class="option"><input type="radio" name="where" value="Either"><span>Either is fine</span></label>
+          </fieldset>
+          <fieldset>
+            <legend>Style</legend>
+            <label class="option"><input type="radio" name="style" value="Quiet" checked><span>Quiet, focused work</span></label>
+            <label class="option"><input type="radio" name="style" value="Talk"><span>Talking problems through</span></label>
+          </fieldset>
+          <div class="actions">
+            <button class="btn btn-primary" type="submit">Find my matches</button>
+            <a class="btn btn-secondary" href="#setup2">Back</a>
+          </div>
+        </form>
+      </section>
+
+      <!-- F10 Matches loading -->
+      <section class="screen center" id="matches-loading" aria-labelledby="loading-title">
+        <div class="spinner" aria-hidden="true"></div>
+        <h1 id="loading-title" tabindex="-1">Finding your matches</h1>
+        <p class="lead" role="status">Looking for classmates on your module who are free when you are.</p>
+        <div class="actions">
+          <a class="btn btn-secondary" href="#matches">Show matches now</a>
+        </div>
+      </section>
+
+      <!-- F11 Matches results -->
+      <section class="screen" id="matches" aria-labelledby="matches-title">
+        <h1 id="matches-title" tabindex="-1">Your matches</h1>
+        <p class="lead">Best fit first, for HCIN6222.</p>
+
+        <div class="chips" role="group" aria-label="Filter matches">
+          <button class="chip" type="button" data-f="hcin" aria-pressed="true">HCIN6222</button>
+          <button class="chip" type="button" data-f="tue" aria-pressed="false">Free Tuesday</button>
+          <button class="chip" type="button" data-f="campus" aria-pressed="false">On campus</button>
+        </div>
+        <p class="hint" id="match-count" role="status"></p>
+
+        <article class="card" data-tags="hcin tue campus">
+          <div class="row"><h2>Naledi M.</h2><span class="match">92% match</span></div>
+          <p class="rating"><span aria-hidden="true">★</span> 4.8 rating from 12 sessions</p>
+          <div class="tags"><span class="tag">HCIN6222</span><span class="tag">PROG6212</span></div>
+          <p class="overlap"><strong>Free Tue 14:00</strong> – same as you</p>
+          <a class="btn btn-primary btn-small" href="#match-profile">View profile</a>
+        </article>
+
+        <article class="card" data-tags="hcin tue online">
+          <div class="row"><h2>Thabo K.</h2><span class="match">85% match</span></div>
+          <p class="rating"><span aria-hidden="true">★</span> 4.6 rating from 8 sessions</p>
+          <div class="tags"><span class="tag">HCIN6222</span><span class="tag">DATA6222</span></div>
+          <p class="overlap"><strong>Free Tue 16:00</strong> – close to your time</p>
+          <a class="btn btn-primary btn-small" href="#match-profile">View profile</a>
+        </article>
+
+        <article class="card" data-tags="hcin thu campus">
+          <div class="row"><h2>Aisha P.</h2><span class="match">78% match</span></div>
+          <p class="rating"><span aria-hidden="true">★</span> 4.9 rating from 15 sessions</p>
+          <div class="tags"><span class="tag">HCIN6222</span></div>
+          <p class="overlap"><strong>Free Thu 14:00</strong> – a different day</p>
+          <a class="btn btn-primary btn-small" href="#match-profile">View profile</a>
+        </article>
+      </section>
+
+      <!-- F12 Match profile (F13 pop-up and F14 banner live here too) -->
+      <section class="screen" id="match-profile" aria-labelledby="mp-title">
+        <a class="back" href="#matches">‹ Back to matches</a>
+        <div class="banner" id="sent-banner" role="status" hidden>
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#0F766E"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4"/></svg>
+          <p><strong>Request sent.</strong> We'll let you know as soon as they reply.</p>
+        </div>
+        <div class="row"><h1 id="mp-title" tabindex="-1">Naledi M.</h1><span class="match">92% match</span></div>
+        <p class="rating"><span aria-hidden="true">★</span> 4.8 average from 12 sessions</p>
+
+        <h2 class="mt">Shared modules</h2>
+        <div class="tags"><span class="tag">HCIN6222</span><span class="tag">PROG6212</span></div>
+
+        <h2 class="mt">Free times</h2>
+        <p class="overlap"><strong>Tue 14:00</strong> – you are both free</p>
+        <p class="rating">Also free Thu 10:00</p>
+
+        <h2 class="mt">What others say</h2>
+        <p class="quote">“Well prepared and very patient.”</p>
+        <p class="quote">“Kept us on track for the whole session.”</p>
+
+        <button class="btn btn-primary" id="open-request" type="button">Send request</button>
+
+        <dialog id="request-dialog" aria-labelledby="req-title">
+          <h2 id="req-title">Send a request to Naledi</h2>
+          <label for="req-msg">Add a short message (optional)</label>
+          <textarea id="req-msg" rows="3">Hi Naledi, can we study HCIN6222 together on Tuesday?</textarea>
+          <p class="hint">Your contact details are shared only if you both accept.</p>
+          <div class="actions">
+            <button class="btn btn-primary" id="send-request" type="button">Send</button>
+            <button class="btn btn-secondary" id="cancel-request" type="button">Cancel</button>
+          </div>
+        </dialog>
+      </section>
+
+      <!-- F15 Incoming request -->
+      <section class="screen" id="incoming" aria-labelledby="incoming-title">
+        <a class="back" href="#home">‹ Back to home</a>
+        <h1 id="incoming-title" tabindex="-1">New study request</h1>
+        <article class="card">
+          <div class="row"><h2>Thabo K.</h2><span class="match">85% match</span></div>
+          <p class="rating"><span aria-hidden="true">★</span> 4.6 rating from 8 sessions</p>
+          <div class="tags"><span class="tag">HCIN6222</span></div>
+          <p class="quote">“Hi! Can we go through the HCI report on Tuesday?”</p>
+          <p class="overlap"><strong>Free Tue 16:00</strong> – close to your time</p>
+        </article>
+        <div class="actions">
+          <a class="btn btn-primary" href="#chat">Accept</a>
+          <a class="btn btn-secondary" href="#home">Decline</a>
+        </div>
+        <p class="hint">No reason needed. They won't be told why.</p>
+      </section>
+
+      <!-- F16 Home -->
+      <section class="screen" id="home" aria-labelledby="home-title">
+        <h1 id="home-title" tabindex="-1">Hi, Taite</h1>
+        <div class="banner" id="home-toast" role="status" hidden>
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#0F766E"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4"/></svg>
+          <p id="home-toast-text"></p>
+        </div>
+        <p class="lead">Here is your study week.</p>
+        <a class="btn btn-primary" href="#matches">Find a study partner</a>
+
+        <a class="card thread mt" href="#incoming">
+          <strong>1 new request</strong>
+          <span class="rating">Thabo K. wants to study with you</span>
+        </a>
+
+        <h2 class="mt">Next session</h2>
+        <article class="card">
+          <div class="row"><h3>Tue 14:00</h3><span class="match">HCIN6222</span></div>
+          <p class="rating">With Naledi M. · Library, 2nd floor</p>
+        </article>
+
+        <h2 class="mt">Your semester</h2>
+        <div class="stats">
+          <div class="stat"><strong>3</strong>sessions this semester</div>
+          <div class="stat"><strong>142</strong>students on this module</div>
+        </div>
+      </section>
+
+      <!-- F17 Messages -->
+      <section class="screen" id="messages" aria-labelledby="messages-title">
+        <h1 id="messages-title" tabindex="-1">Messages</h1>
+        <a class="card thread" href="#chat">
+          <div class="row"><strong>Naledi M.</strong><span class="rating">10:42</span></div>
+          <span class="rating">See you Tuesday at 14:00</span>
+        </a>
+        <a class="card thread" href="#chat">
+          <div class="row"><strong>Aisha P.</strong><span class="rating">Mon</span></div>
+          <span class="rating">Thanks for the notes!</span>
+        </a>
+      </section>
+
+      <!-- F18 Chat -->
+      <section class="screen" id="chat" aria-labelledby="chat-title">
+        <a class="back" href="#messages">‹ Back to messages</a>
+        <h1 id="chat-title" tabindex="-1">Naledi M.</h1>
+        <div class="chat" id="chat-log" role="log" aria-label="Conversation">
+          <p class="bubble them">Hi! Happy to go through the HCI report with you.</p>
+          <p class="bubble me">Great, when are you free?</p>
+        </div>
+        <p class="overlap"><strong>Suggested time:</strong> you are both free Tue 14:00</p>
+        <a class="btn btn-primary btn-small" href="#schedule">Propose a session</a>
+        <form class="chat-form" id="chat-form">
+          <label class="sr-only" for="chat-input">Type a message</label>
+          <input id="chat-input" type="text" autocomplete="off" placeholder="Type a message">
+          <button class="btn btn-secondary" type="submit">Send</button>
+        </form>
+      </section>
+
+      <!-- Profile (nav tab) -->
+      <section class="screen" id="profile" aria-labelledby="profile-title">
+        <h1 id="profile-title" tabindex="-1">Your profile</h1>
+        <p class="lead">Taite · HCIN6222, PROG6212</p>
+        <a class="card thread" href="#schedule"><strong>Schedule</strong><span class="rating">1 session this week</span></a>
+        <a class="card thread" href="#groups"><strong>Study groups</strong><span class="rating">2 groups on your modules</span></a>
+        <a class="card thread" href="#summary"><strong>Semester summary</strong><span class="rating">See how your semester is going</span></a>
+        <a class="card thread" href="#access"><strong>Accessibility</strong><span class="rating">Text size and motion</span></a>
+      </section>
+
+      <!-- F19 Schedule -->
+      <section class="screen" id="schedule" aria-labelledby="schedule-title">
+        <a class="back" href="#profile">‹ Back to profile</a>
+        <h1 id="schedule-title" tabindex="-1">Your week</h1>
+        <table class="week">
+          <caption class="sr-only">Your study sessions this week</caption>
+          <thead><tr><th scope="col">Day</th><th scope="col">Session</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Mon</th><td class="free">Free</td></tr>
+            <tr class="has"><th scope="row">Tue</th><td><strong>14:00</strong> HCIN6222 with Naledi M.</td></tr>
+            <tr><th scope="row">Wed</th><td class="free">Free</td></tr>
+            <tr class="has"><th scope="row">Thu</th><td><strong>10:00</strong> PROG6212 with Aisha P.</td></tr>
+            <tr class="has"><th scope="row">Fri</th><td><strong>14:00</strong> Study group: HCIN6222 report</td></tr>
+          </tbody>
+        </table>
+        <div class="actions">
+          <a class="btn btn-primary" href="#rating">Rate your last session</a>
+          <a class="btn btn-secondary" href="#matches">Find a study partner</a>
+        </div>
+      </section>
+
+      <!-- F20 Session rating (F20b is its error state) -->
+      <section class="screen" id="rating" aria-labelledby="rating-title">
+        <a class="back" href="#schedule">‹ Back to schedule</a>
+        <h1 id="rating-title" tabindex="-1">How was your session with Naledi?</h1>
+        <form data-next="#home" data-require="#stars" data-error="#rating-error" data-toast="Thanks for rating Naledi. Your feedback helps us suggest better matches." novalidate>
+          <div class="error" id="rating-error" role="alert" hidden>
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#C2410C"/><rect x="11" y="6" width="2" height="8" fill="#fff"/><rect x="11" y="16" width="2" height="2" fill="#fff"/></svg>
+            <p><strong>Choose a rating from 1 to 5.</strong> It helps us suggest better matches.</p>
+          </div>
+          <fieldset id="stars">
+            <legend>Overall rating (5 is best)</legend>
+            <div class="star-row">
+              <label class="rate"><input type="radio" name="stars" value="1"><span><span aria-hidden="true">★</span> 1</span></label>
+              <label class="rate"><input type="radio" name="stars" value="2"><span><span aria-hidden="true">★</span> 2</span></label>
+              <label class="rate"><input type="radio" name="stars" value="3"><span><span aria-hidden="true">★</span> 3</span></label>
+              <label class="rate"><input type="radio" name="stars" value="4"><span><span aria-hidden="true">★</span> 4</span></label>
+              <label class="rate"><input type="radio" name="stars" value="5"><span><span aria-hidden="true">★</span> 5</span></label>
+            </div>
+          </fieldset>
+          <label for="rate-note">Comments (optional)</label>
+          <textarea id="rate-note" rows="3" placeholder="What went well?"></textarea>
+          <div class="actions">
+            <button class="btn btn-primary" type="submit">Submit rating</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- F21 Study groups -->
+      <section class="screen" id="groups" aria-labelledby="groups-title">
+        <a class="back" href="#profile">‹ Back to profile</a>
+        <h1 id="groups-title" tabindex="-1">Study groups</h1>
+        <p class="lead">Groups on your modules.</p>
+        <article class="card">
+          <div class="row"><h2>HCIN6222 report group</h2></div>
+          <p class="rating">4 members · Fridays 14:00</p>
+          <button class="btn btn-primary btn-small join" type="button" aria-label="Join HCIN6222 report group">Join</button>
+        </article>
+        <article class="card">
+          <div class="row"><h2>PROG6212 revision</h2></div>
+          <p class="rating">6 members · Thursdays 10:00</p>
+          <button class="btn btn-primary btn-small join" type="button" aria-label="Join PROG6212 revision">Join</button>
+        </article>
+      </section>
+
+      <!-- F22 Semester summary -->
+      <section class="screen" id="summary" aria-labelledby="summary-title">
+        <a class="back" href="#profile">‹ Back to profile</a>
+        <h1 id="summary-title" tabindex="-1">Your semester</h1>
+        <p class="lead">Good work, Taite. You are building a steady habit.</p>
+        <div class="stats">
+          <div class="stat"><strong>3</strong>sessions</div>
+          <div class="stat"><strong>2</strong>study partners</div>
+          <div class="stat"><strong>4.8</strong>average rating</div>
+          <div class="stat"><strong>5 h</strong>studied together</div>
+        </div>
+        <h2 class="mt">Sessions by module</h2>
+        <p class="rating">HCIN6222 · 2 sessions</p>
+        <div class="bar" aria-hidden="true"><span style="width:66%"></span></div>
+        <p class="rating">PROG6212 · 1 session</p>
+        <div class="bar" aria-hidden="true"><span style="width:33%"></span></div>
+      </section>
+
+      <!-- F23 Accessibility -->
+      <section class="screen" id="access" aria-labelledby="access-title">
+        <a class="back" href="#profile">‹ Back to profile</a>
+        <h1 id="access-title" tabindex="-1">Accessibility</h1>
+        <p class="lead">StudyBuddy works with a keyboard and a screen reader. Change how it looks and moves here.</p>
+        <label class="option"><input type="checkbox" id="opt-large"><span><strong>Larger text</strong><span class="sub">Makes everything bigger</span></span></label>
+        <label class="option"><input type="checkbox" id="opt-calm"><span><strong>Reduce motion</strong><span class="sub">Stops spinning and moving items</span></span></label>
+      </section>
+
+    </main>
+
+    <nav class="bottom-nav" id="bottom-nav" aria-label="Main" hidden>
+      <a href="#home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</a>
+      <a href="#matches"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-4 3-6 7-6s7 2 7 6zM15 14c4 0 7 1.5 7 5h-5z"/></svg>Matches</a>
+      <a href="#messages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v13H8l-5 4z"/></svg>Messages</a>
+      <a href="#profile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 4-7 8-7s8 2 8 7z"/></svg>Profile</a>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
